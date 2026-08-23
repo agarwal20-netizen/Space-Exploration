@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronauts | Space Exploration</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <script type="module" crossorigin src="assets/script-DbWN67NH.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/script-BCkEEq-8.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="loader">
+    <div class="planet-spinner"></div>
+    <div class="loader-text">Loading Astronaut Profiles...</div>
+  </div>
+
+  <!-- Background Starfield Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="cosmic-nebula-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+        <div class="logo-text">Space<span>Xplore</span></div>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Space</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="astronauts.html" class="nav-link active">Astronauts</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header style="padding-top: 140px; padding-bottom: 60px; text-align: center;">
+    <div class="container">
+      <span class="section-tag"><i class="fas fa-user-astronaut"></i> Human Pioneers</span>
+      <h1 class="section-title" style="font-size: 3rem;">Famous Astronauts</h1>
+      <p class="section-subtitle">Honoring the courageous men and women who ventured into the unknown to expand human understanding.</p>
+    </div>
+  </header>
+
+  <!-- Astronauts Grid -->
+  <section style="padding: 20px 0 80px;">
+    <div class="container">
+      <div class="astronauts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+
+        <!-- 1. Neil Armstrong -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=300&q=80" alt="Neil Armstrong" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-blue); box-shadow: var(--glow-blue);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-blue); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--neon-blue);">
+              🇺🇸
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Neil Armstrong</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(0,243,255,0.1); border: 1px solid var(--neon-blue); border-radius: 20px; color: var(--neon-blue); font-size: 0.8rem; margin-bottom: 16px;">
+            United States • NASA
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> Commander of Apollo 11 and the first human being to step foot on the Moon on July 20, 1969.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "That's one small step for man, one giant leap for mankind."
+          </div>
+        </div>
+
+        <!-- 2. Yuri Gagarin -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px; transition-delay: 0.1s;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="assets/astronaut_spacewalk_1786033089319-CWfKybkh.jpg" alt="Yuri Gagarin" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-purple); box-shadow: var(--glow-purple);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-purple); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+              🚀
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Yuri Gagarin</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(157,78,221,0.1); border: 1px solid var(--neon-purple); border-radius: 20px; color: var(--neon-purple); font-size: 0.8rem; margin-bottom: 16px;">
+            Soviet Union • Cosmonaut
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> The first human in space. On April 12, 1961, his Vostok 1 capsule completed one orbit around Earth.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "Poyekhali! (Off we go!)"
+          </div>
+        </div>
+
+        <!-- 3. Kalpana Chawla -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px; transition-delay: 0.2s;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=300&q=80" alt="Kalpana Chawla" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-pink);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-pink); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+              🇮🇳
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Kalpana Chawla</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(247,37,133,0.1); border: 1px solid var(--neon-pink); border-radius: 20px; color: var(--neon-pink); font-size: 0.8rem; margin-bottom: 16px;">
+            India / USA • NASA
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> First Indian-born woman in space. She flew as a primary robotic arm operator on Space Shuttle Columbia missions STS-87 and STS-107.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "The path from dreams to success does exist."
+          </div>
+        </div>
+
+        <!-- 4. Chris Hadfield -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="assets/astronaut_spacewalk_1786033089319-CWfKybkh.jpg" alt="Chris Hadfield" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-cyan);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-cyan); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+              🇨🇦
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Chris Hadfield</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(76,201,240,0.1); border: 1px solid var(--neon-cyan); border-radius: 20px; color: var(--neon-cyan); font-size: 0.8rem; margin-bottom: 16px;">
+            Canada • CSA / NASA
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> First Canadian commander of the International Space Station. Famous for his spacewalks and engaging science communication from orbit.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "Decide in your heart what really excites and challenges you."
+          </div>
+        </div>
+
+        <!-- 5. Sunita Williams -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px; transition-delay: 0.1s;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=300&q=80" alt="Sunita Williams" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-blue);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-blue); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+              🇺🇸
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Sunita Williams</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(0,243,255,0.1); border: 1px solid var(--neon-blue); border-radius: 20px; color: var(--neon-blue); font-size: 0.8rem; margin-bottom: 16px;">
+            United States • NASA
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> Record-setting NASA astronaut with 7 spacewalks totaling over 50 hours, and piloted Boeing's Starliner commercial crew flight.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "Don't get bogged down by what people think you can or cannot do."
+          </div>
+        </div>
+
+        <!-- 6. Mae Jemison -->
+        <div class="glass-card reveal" style="text-align: center; padding: 36px 24px; transition-delay: 0.2s;">
+          <div style="position: relative; width: 140px; height: 140px; margin: 0 auto 24px;">
+            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=300&q=80" alt="Mae Jemison" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--neon-purple);">
+            <div style="position: absolute; bottom: 0; right: 0; background: #05070d; border: 1px solid var(--neon-purple); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+              🇺🇸
+            </div>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 6px;">Mae Jemison</h2>
+          <span style="display: inline-block; padding: 4px 12px; background: rgba(157,78,221,0.1); border: 1px solid var(--neon-purple); border-radius: 20px; color: var(--neon-purple); font-size: 0.8rem; margin-bottom: 16px;">
+            United States • NASA
+          </span>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+            <strong>Major Achievement:</strong> Engineer, physician, and the first African American woman in space. She served as a Science Mission Specialist on Space Shuttle Endeavour.
+          </p>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; color: var(--text-muted); font-size: 0.85rem; font-style: italic;">
+            "Never be limited by other people's limited imaginations."
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+            <div class="logo-text">Space<span>Xplore</span></div>
+          </a>
+          <p>Inspiring first-year engineers and space enthusiasts with interactive, futuristic cosmic knowledge.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Space</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="missions.html">Space Missions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="astronauts.html">Astronauts</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Cosmic Newsletter</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Subscribe for astronomy news & launch alerts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Space Command updates!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 18px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SpaceXplore By Team WebForge</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Application Script -->
+</body>
+</html>
+

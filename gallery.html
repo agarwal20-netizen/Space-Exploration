@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Gallery | Space Exploration</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <style>
+    /* Custom Gallery Styles */
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      color: var(--text-secondary);
+      padding: 8px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: var(--font-subheading);
+      font-size: 0.9rem;
+      transition: var(--transition-normal);
+    }
+
+    .gallery-filter-btn.active,
+    .gallery-filter-btn:hover {
+      background: rgba(0, 243, 255, 0.15);
+      border-color: var(--neon-blue);
+      color: var(--neon-blue);
+      box-shadow: var(--glow-blue);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item-inner {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-glass);
+      cursor: pointer;
+      height: 260px;
+    }
+
+    .gallery-item-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item-inner:hover img {
+      transform: scale(1.12);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(5,7,13,0.95), transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item-inner:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .gallery-category-badge {
+      font-size: 0.75rem;
+      color: var(--neon-blue);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* Lightbox Modal */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 5, 10, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 90%;
+      max-height: 80vh;
+      text-align: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 0 50px rgba(0, 243, 255, 0.25);
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 16px;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-glass);
+      color: #fff;
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      z-index: 3001;
+    }
+
+    .lightbox-close {
+      top: 30px;
+      right: 40px;
+    }
+
+    .lightbox-prev {
+      left: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      background: var(--neon-blue);
+      color: #05070d;
+      box-shadow: var(--glow-blue);
+    }
+  </style>
+  <script type="module" crossorigin src="assets/gallery-oe6-XM2j.js"></script>
+  <link rel="modulepreload" crossorigin href="assets/script-DbWN67NH.js">
+  <link rel="stylesheet" crossorigin href="assets/script-BCkEEq-8.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="loader">
+    <div class="planet-spinner"></div>
+    <div class="loader-text">Loading Cosmic Imagery...</div>
+  </div>
+
+  <!-- Background Starfield Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="cosmic-nebula-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+        <div class="logo-text">Space<span>Xplore</span></div>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Space</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="astronauts.html" class="nav-link">Astronauts</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header style="padding-top: 140px; padding-bottom: 40px; text-align: center;">
+    <div class="container">
+      <span class="section-tag"><i class="fas fa-camera"></i> High-Resolution Astrophotography</span>
+      <h1 class="section-title" style="font-size: 3rem;">Cosmic Image Gallery</h1>
+      <p class="section-subtitle">Click any image to launch the full-screen interactive lightbox viewer.</p>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section style="padding: 20px 0 80px;">
+    <div class="container">
+
+      <!-- Category Filter Buttons -->
+      <div class="gallery-filter">
+        <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+        <button class="gallery-filter-btn" data-filter="nebulas">Nebulas</button>
+        <button class="gallery-filter-btn" data-filter="galaxies">Galaxies</button>
+        <button class="gallery-filter-btn" data-filter="rockets">Rockets</button>
+        <button class="gallery-filter-btn" data-filter="planets">Planets</button>
+        <button class="gallery-filter-btn" data-filter="astronauts">Astronauts</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+
+        <!-- Nebulas 1 -->
+        <div class="gallery-item" data-category="nebulas">
+          <div class="gallery-item-inner">
+            <img src="assets/space_hero_bg_1786033063846-BjIrEO4H.jpg" alt="Vibrant Orion Cosmic Nebula">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Nebula</span>
+              <h3 class="gallery-title">Vibrant Cosmic Nebula</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planets 1 -->
+        <div class="gallery-item" data-category="planets">
+          <div class="gallery-item-inner">
+            <img src="assets/earth_moon_space_1786033076135-cM4NJtBR.jpg" alt="Earth and Moon Crescent">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Planet</span>
+              <h3 class="gallery-title">Earth & Crescent Moon</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Astronauts 1 -->
+        <div class="gallery-item" data-category="astronauts">
+          <div class="gallery-item-inner">
+            <img src="assets/astronaut_spacewalk_1786033089319-CWfKybkh.jpg" alt="Astronaut Spacewalk outside ISS">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Astronaut</span>
+              <h3 class="gallery-title">Spacewalk over Earth</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galaxies 1 -->
+        <div class="gallery-item" data-category="galaxies">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80" alt="Spiral Galaxy M31 Andromeda">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Galaxy</span>
+              <h3 class="gallery-title">Andromeda Spiral Galaxy</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rockets 1 -->
+        <div class="gallery-item" data-category="rockets">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" alt="Heavy Rocket Liftoff at Dusk">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Rocket</span>
+              <h3 class="gallery-title">Heavy Rocket Liftoff</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nebulas 2 -->
+        <div class="gallery-item" data-category="nebulas">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=800&q=80" alt="Carina Stellar Nursery">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Nebula</span>
+              <h3 class="gallery-title">Pillars of Star Formation</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rockets 2 -->
+        <div class="gallery-item" data-category="rockets">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80" alt="Space Shuttle Launch Pad">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Rocket</span>
+              <h3 class="gallery-title">Space Shuttle Night Launch</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planets 2 -->
+        <div class="gallery-item" data-category="planets">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80" alt="Mars Surface Panorama">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Planet</span>
+              <h3 class="gallery-title">Martian Horizon</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galaxies 2 -->
+        <div class="gallery-item" data-category="galaxies">
+          <div class="gallery-item-inner">
+            <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=800&q=80" alt="Deep Space Star Cluster">
+            <div class="gallery-overlay">
+              <span class="gallery-category-badge">Galaxy</span>
+              <h3 class="gallery-title">Milky Way Core</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal Popup -->
+  <div id="lightbox">
+    <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous Image"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next Image"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-container">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged Cosmic Image">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+            <div class="logo-text">Space<span>Xplore</span></div>
+          </a>
+          <p>Inspiring first-year engineers and space enthusiasts with interactive, futuristic cosmic knowledge.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Space</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="missions.html">Space Missions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="astronauts.html">Astronauts</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Cosmic Newsletter</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Subscribe for astronomy news & launch alerts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Space Command updates!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 18px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SpaceXplore By Team WebForge</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Application Script -->
+</body>
+</html>
+

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Missions | Space Exploration</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <script type="module" crossorigin src="assets/script-DbWN67NH.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/script-BCkEEq-8.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="loader">
+    <div class="planet-spinner"></div>
+    <div class="loader-text">Loading Mission Logs...</div>
+  </div>
+
+  <!-- Background Starfield Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="cosmic-nebula-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+        <div class="logo-text">Space<span>Xplore</span></div>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Space</a></li>
+        <li><a href="planets.html" class="nav-link">Planets</a></li>
+        <li><a href="missions.html" class="nav-link active">Missions</a></li>
+        <li><a href="astronauts.html" class="nav-link">Astronauts</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header style="padding-top: 140px; padding-bottom: 60px; text-align: center;">
+    <div class="container">
+      <span class="section-tag"><i class="fas fa-shuttle-space"></i> Exploration Expeditions</span>
+      <h1 class="section-title" style="font-size: 3rem;">Famous Space Missions</h1>
+      <p class="section-subtitle">Pioneering spacecraft and heroic lunar landings that reshaped humanity's understanding of the universe.</p>
+    </div>
+  </header>
+
+  <!-- Missions Grid -->
+  <section style="padding: 20px 0 80px;">
+    <div class="container">
+      <div class="missions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+
+        <!-- 1. Apollo 11 -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative;">
+              <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80" alt="Apollo 11 Saturn V Rocket" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,7,13,0.8); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--neon-blue); border: 1px solid var(--neon-blue);">NASA</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Apollo 11</h2>
+              <span style="color: var(--neon-cyan); font-family: var(--font-subheading); font-weight: 700;"><i class="fas fa-calendar"></i> 1969</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              The historic spaceflight that first landed humans on the Moon. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed the Eagle on July 20, 1969.
+            </p>
+          </div>
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Objective:</strong> Land human crew safely on the lunar surface and return them to Earth.
+            </div>
+            <button class="btn btn-outline learn-more-btn" style="width: 100%;" 
+                    data-title="Apollo 11" 
+                    data-year="1969"
+                    data-agency="NASA"
+                    data-details="Apollo 11 was launched by a Saturn V rocket from Kennedy Space Center on July 16, 1969. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin spent 21 hours and 36 minutes on the Moon's surface while Michael Collins flew the Command Module Columbia in lunar orbit. They collected 47.5 pounds of lunar material to bring back to Earth.">
+              Learn More <i class="fas fa-info-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Voyager 1 -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.1s;">
+          <div>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative;">
+              <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80" alt="Voyager 1 Deep Space Probe" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,7,13,0.8); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--neon-purple); border: 1px solid var(--neon-purple);">NASA / JPL</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Voyager 1</h2>
+              <span style="color: var(--neon-purple); font-family: var(--font-subheading); font-weight: 700;"><i class="fas fa-calendar"></i> 1977</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              The farthest human-made object from Earth. Voyager 1 crossed into interstellar space in 2012 and carries the iconic Golden Record with messages from Earth.
+            </p>
+          </div>
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Objective:</strong> Conduct flybys of Jupiter and Saturn, then study the boundary of interstellar space.
+            </div>
+            <button class="btn btn-outline learn-more-btn" style="width: 100%;" 
+                    data-title="Voyager 1" 
+                    data-year="1977"
+                    data-agency="NASA / JPL"
+                    data-details="Launched on September 5, 1977, Voyager 1 continues to communicate with NASA's Deep Space Network at a distance of over 24 billion kilometers. It captured detailed images of Jupiter's volcanic moon Io and Saturn's ring system before escaping solar gravity into interstellar space.">
+              Learn More <i class="fas fa-info-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Curiosity Rover -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.2s;">
+          <div>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative;">
+              <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80" alt="Mars Curiosity Rover" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,7,13,0.8); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--neon-pink); border: 1px solid var(--neon-pink);">NASA / Mars Science Lab</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Curiosity Rover</h2>
+              <span style="color: var(--neon-pink); font-family: var(--font-subheading); font-weight: 700;"><i class="fas fa-calendar"></i> 2011</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              A car-sized robotic rover exploring Gale Crater on Mars. Curiosity verified that ancient Mars possessed conditions capable of supporting microbial life.
+            </p>
+          </div>
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Objective:</strong> Search for habitability, organic carbon compounds, and ancient water signs on Mars.
+            </div>
+            <button class="btn btn-outline learn-more-btn" style="width: 100%;" 
+                    data-title="Curiosity Rover" 
+                    data-year="2011"
+                    data-agency="NASA / JPL"
+                    data-details="Landed inside Gale Crater on August 6, 2012, using an unprecedented Sky Crane landing technique. Curiosity carries a laser spectrometer to blast Martian rocks and analyze chemical composition, drilling into ancient lakebeds that proved Mars once had liquid freshwater.">
+              Learn More <i class="fas fa-info-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Artemis Program -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative;">
+              <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=80" alt="Artemis SLS Rocket" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,7,13,0.8); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--neon-blue); border: 1px solid var(--neon-blue);">NASA / International</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Artemis Program</h2>
+              <span style="color: var(--neon-blue); font-family: var(--font-subheading); font-weight: 700;"><i class="fas fa-calendar"></i> 2022 - Ongoing</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              NASA's ongoing human spaceflight program aiming to land the first woman and first person of color on the Moon and establish a sustainable lunar base camp.
+            </p>
+          </div>
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Objective:</strong> Establish permanent human presence on the Moon and prepare for crewed missions to Mars.
+            </div>
+            <button class="btn btn-outline learn-more-btn" style="width: 100%;" 
+                    data-title="Artemis Program" 
+                    data-year="2022+"
+                    data-agency="NASA / ESA / JAXA / CSA"
+                    data-details="The Artemis I uncrewed Orion spacecraft successfully orbited the Moon in late 2022. Future Artemis missions will build the Gateway lunar space station and mine water ice in the Moon's South Pole crater region to produce rocket propellant.">
+              Learn More <i class="fas fa-info-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. James Webb Space Telescope (JWST) -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.1s;">
+          <div>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); position: relative;">
+              <img src="assets/space_hero_bg_1786033063846-BjIrEO4H.jpg" alt="James Webb Space Telescope" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 12px; right: 12px; background: rgba(5,7,13,0.8); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--neon-purple); border: 1px solid var(--neon-purple);">NASA / ESA / CSA</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">James Webb Telescope</h2>
+              <span style="color: var(--neon-purple); font-family: var(--font-subheading); font-weight: 700;"><i class="fas fa-calendar"></i> 2021</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              The premier space observatory of the 21st century. Positioned at Lagrange Point 2, its 6.5m gold-plated mirror peers back 13.5 billion years into cosmological time.
+            </p>
+          </div>
+          <div>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Objective:</strong> Observe the first stars and galaxies that formed after the Big Bang and characterize exoplanet atmospheres.
+            </div>
+            <button class="btn btn-outline learn-more-btn" style="width: 100%;" 
+                    data-title="James Webb Space Telescope (JWST)" 
+                    data-year="2021"
+                    data-agency="NASA / ESA / CSA"
+                    data-details="Launched on Christmas Day 2021 aboard an Ariane 5 rocket, JWST operates in infrared wavelengths protected by a 5-layer tennis-court-sized sunshield. It has discovered the most distant galaxies ever recorded and detected water vapor and carbon dioxide in exoplanet skies.">
+              Learn More <i class="fas fa-info-circle"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Detail Modal -->
+  <div id="missionModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5,7,13,0.85); backdrop-filter: blur(16px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition-normal);">
+    <div class="glass-card modal-content" style="width: 90%; max-width: 600px; padding: 36px; border: 1px solid var(--neon-blue); position: relative;">
+      <button id="closeMissionModal" style="position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      <div id="modalAgency" style="display: inline-block; padding: 4px 12px; background: rgba(0,243,255,0.1); border: 1px solid var(--neon-blue); border-radius: 20px; color: var(--neon-blue); font-size: 0.8rem; margin-bottom: 12px;"></div>
+      <h2 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 6px;"></h2>
+      <p id="modalYear" style="color: var(--neon-purple); font-weight: 600; margin-bottom: 20px;"></p>
+      <div id="modalDetails" style="color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem; margin-bottom: 28px;"></div>
+      <button id="dismissMissionModal" class="btn btn-primary" style="width: 100%;">Close Mission Log</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+            <div class="logo-text">Space<span>Xplore</span></div>
+          </a>
+          <p>Inspiring first-year engineers and space enthusiasts with interactive, futuristic cosmic knowledge.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Space</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="missions.html">Space Missions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="astronauts.html">Astronauts</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Cosmic Newsletter</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Subscribe for astronomy news & launch alerts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Space Command updates!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 18px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SpaceXplore By Team WebForge</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Application Script -->
+  <script>
+    // Mission Modal Handler
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('missionModal');
+      const closeBtn = document.getElementById('closeMissionModal');
+      const dismissBtn = document.getElementById('dismissMissionModal');
+      const titleEl = document.getElementById('modalTitle');
+      const yearEl = document.getElementById('modalYear');
+      const agencyEl = document.getElementById('modalAgency');
+      const detailsEl = document.getElementById('modalDetails');
+
+      document.querySelectorAll('.learn-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          titleEl.textContent = btn.getAttribute('data-title');
+          yearEl.textContent = 'Launch Year: ' + btn.getAttribute('data-year');
+          agencyEl.textContent = btn.getAttribute('data-agency');
+          detailsEl.textContent = btn.getAttribute('data-details');
+
+          modal.style.opacity = '1';
+          modal.style.visibility = 'visible';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      const closeModal = () => {
+        modal.style.opacity = '0';
+        modal.style.visibility = 'hidden';
+        document.body.style.overflow = '';
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+      if (modal) modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    });
+  </script>
+</body>
+</html>
+

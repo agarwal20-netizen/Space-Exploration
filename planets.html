@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planets of the Solar System | Space Exploration</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <script type="module" crossorigin src="assets/script-DbWN67NH.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/script-BCkEEq-8.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="loader">
+    <div class="planet-spinner"></div>
+    <div class="loader-text">Aligning Planetary Orbits...</div>
+  </div>
+
+  <!-- Background Starfield Canvas -->
+  <canvas id="starfield"></canvas>
+  <div class="cosmic-nebula-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+        <div class="logo-text">Space<span>Xplore</span></div>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Space</a></li>
+        <li><a href="planets.html" class="nav-link active">Planets</a></li>
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="astronauts.html" class="nav-link">Astronauts</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header style="padding-top: 140px; padding-bottom: 60px; text-align: center;">
+    <div class="container">
+      <span class="section-tag"><i class="fas fa-globe-americas"></i> Solar System Catalog</span>
+      <h1 class="section-title" style="font-size: 3rem;">The 8 Major Planets</h1>
+      <p class="section-subtitle">Discover the unique geology, atmospheric composition, orbital distances, and surprising mysteries of our solar system's primary planets.</p>
+    </div>
+  </header>
+
+  <!-- Planets Grid -->
+  <section style="padding: 20px 0 80px;">
+    <div class="container">
+      <div class="planets-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+
+        <!-- 1. Mercury -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #a9a9a9, #4a4a4a, #111); box-shadow: 0 0 25px rgba(169,169,169,0.3);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">1. Mercury</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(0,243,255,0.1); border: 1px solid var(--neon-blue); border-radius: 20px; color: var(--neon-blue);">Terrestrial</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              The smallest planet in the solar system and closest to the Sun. Despite being closest, it is not the hottest planet.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">57.9 Million km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">88 Earth Days</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: var(--neon-cyan); font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Mercury has no moons and experiences temperature swings from 430°C to -180°C!
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Venus -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.1s;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e3bb76, #c27d28, #3b2202); box-shadow: 0 0 30px rgba(227,187,118,0.35);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">2. Venus</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(227,187,118,0.15); border: 1px solid #e3bb76; border-radius: 20px; color: #e3bb76;">Terrestrial</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              Earth's twin in size, enveloped by thick carbon dioxide clouds causing a runaway greenhouse effect.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">108.2 Million km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">225 Earth Days</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: #e3bb76; font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Venus rotates in the opposite direction to most planets, and its day is longer than its year!
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Earth -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.2s;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 145px; height: 145px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #4b92db, #1d4d8c, #051937); box-shadow: 0 0 35px rgba(0,243,255,0.4);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">3. Earth</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(0,243,255,0.15); border: 1px solid var(--neon-blue); border-radius: 20px; color: var(--neon-blue);">Habitable Zone</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              Our home world. The only place in the known universe confirmed to harbor liquid water oceans and living organisms.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">149.6 Million km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">365.25 Days</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: var(--neon-blue); font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Earth's atmosphere shields us from meteoroids, most of which burn up as shooting stars.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. Mars -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 135px; height: 135px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e25822, #992d00, #330d00); box-shadow: 0 0 30px rgba(226,88,34,0.4);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">4. Mars</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(226,88,34,0.15); border: 1px solid #e25822; border-radius: 20px; color: #e25822;">The Red Planet</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              A dusty, cold desert world with a thin atmosphere. Home to Olympus Mons, the largest volcano in the solar system.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">227.9 Million km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">687 Earth Days</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: #e25822; font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Mars gets its reddish tint from iron oxide (rust) covering its surface!
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. Jupiter -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.1s;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d8ca9d, #b07f35, #5e3b08); box-shadow: 0 0 35px rgba(216,202,157,0.35);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">5. Jupiter</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(157,78,221,0.15); border: 1px solid var(--neon-purple); border-radius: 20px; color: var(--neon-purple);">Gas Giant</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              More than twice as massive as all other planets combined. Famous for its iconic Great Red Spot storm larger than Earth.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">778.5 Million km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">11.86 Earth Years</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: var(--neon-purple); font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Jupiter has 95 officially recognized moons, including Europa with its subsurface ocean!
+            </p>
+          </div>
+        </div>
+
+        <!-- 6. Saturn -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.2s;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative;">
+              <div class="animate-float" style="width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e8d08d, #a3853b, #40300d); box-shadow: 0 0 35px rgba(232,208,141,0.35); position: relative; z-index: 2;"></div>
+              <!-- Saturn Ring -->
+              <div style="position: absolute; width: 190px; height: 40px; border-radius: 50%; border: 6px solid rgba(232, 208, 141, 0.7); transform: rotate(-20deg); z-index: 1;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">6. Saturn</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(232,208,141,0.15); border: 1px solid #e8d08d; border-radius: 20px; color: #e8d08d;">Ringed Giant</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              Adorned with a dazzling system of icy rings. It is the least dense planet in our solar system—so light it would float in water!
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">1.43 Billion km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">29.45 Earth Years</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: #e8d08d; font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Saturn's rings are made up of billions of chunks of ice, rock, and dust particles.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Uranus -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #70d6ff, #2b709e, #0c2b42); box-shadow: 0 0 35px rgba(112,214,255,0.4);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">7. Uranus</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(112,214,255,0.15); border: 1px solid #70d6ff; border-radius: 20px; color: #70d6ff;">Ice Giant</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              An ice giant with a unique tilt: it rotates almost completely on its side, resulting in extreme 21-year-long seasonal shifts.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">2.87 Billion km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">84 Earth Years</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: #70d6ff; font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Methane in Uranus' upper atmosphere absorbs red light, giving it a cool cyan color.
+            </p>
+          </div>
+        </div>
+
+        <!-- 8. Neptune -->
+        <div class="glass-card reveal" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay: 0.1s;">
+          <div>
+            <div style="height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <div class="animate-float" style="width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2b59ff, #11288a, #030a2e); box-shadow: 0 0 35px rgba(43,89,255,0.45);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">8. Neptune</h2>
+              <span style="font-size: 0.8rem; padding: 4px 10px; background: rgba(43,89,255,0.15); border: 1px solid #2b59ff; border-radius: 20px; color: #2b59ff;">Deep Blue Giant</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+              Dark, cold, and whipped by supersonic winds reaching up to 2,100 km/h. The most distant major planet in our solar system.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-sun"></i> Distance from Sun:</span>
+                <span style="color: #fff; font-weight: 600;">4.5 Billion km</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);"><i class="fas fa-clock"></i> Orbital Period:</span>
+                <span style="color: #fff; font-weight: 600;">164.8 Earth Years</span>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 14px;">
+            <p style="color: #2b59ff; font-size: 0.85rem; font-style: italic;">
+              <i class="fas fa-lightbulb"></i> <strong>Fun Fact:</strong> Neptune was the first planet located through mathematical predictions before being seen!
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+            <div class="logo-text">Space<span>Xplore</span></div>
+          </a>
+          <p>Inspiring first-year engineers and space enthusiasts with interactive, futuristic cosmic knowledge.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Space</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="missions.html">Space Missions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Discover</h4>
+          <ul class="footer-links">
+            <li><a href="astronauts.html">Astronauts</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Cosmic Newsletter</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Subscribe for astronomy news & launch alerts.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Space Command updates!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 18px;"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SpaceXplore By Team WebForge</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Application Script -->
+</body>
+</html>
+
